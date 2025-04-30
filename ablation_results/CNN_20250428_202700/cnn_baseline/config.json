@@ -1,0 +1,63 @@
+{
+    "name": "cnn_baseline",
+    "conv_layer_config": [
+        {
+            "layer_type": "conv",
+            "in_channels": 1,
+            "out_channels": 16,
+            "kernel_size": 5,
+            "stride": 1,
+            "padding": 0,
+            "weight_decay": true,
+            "weight_decay_lambda": 0.0001
+        },
+        {
+            "layer_type": "pool",
+            "pooling_type": "average",
+            "kernel_size": 2,
+            "stride": 2
+        },
+        {
+            "layer_type": "conv",
+            "in_channels": 16,
+            "out_channels": 32,
+            "kernel_size": 5,
+            "stride": 1,
+            "padding": 0,
+            "weight_decay": true,
+            "weight_decay_lambda": 0.0001
+        },
+        {
+            "layer_type": "pool",
+            "pooling_type": "average",
+            "kernel_size": 2,
+            "stride": 2
+        }
+    ],
+    "fully_connected_config": [
+        {
+            "in_dim": 512,
+            "out_dim": 10,
+            "weight_decay": true,
+            "weight_decay_lambda": 0.0001
+        }
+    ],
+    "activation_function": "ReLU",
+    "apply_global_avg_pool": false,
+    "optimizer": "SGD",
+    "learning_rate": 0.1,
+    "scheduler": "MultiStepLR",
+    "scheduler_params": {
+        "milestones": [
+            7500,
+            75000
+        ],
+        "gamma": 0.5
+    },
+    "batch_size": 64,
+    "num_epochs": 100,
+    "log_epochs": 1,
+    "augmentation_config": {
+        "if_use_augment": false
+    }
+}
