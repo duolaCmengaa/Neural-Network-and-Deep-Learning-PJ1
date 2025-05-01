@@ -63,12 +63,22 @@ python test_train_CNN.py
 
 As with MLP, you can modify the CNN structure and parameters in the source code.
 
-## Model Testing
+## Model Testing(MLP)
 
 To evaluate a trained model:
 
 ```bash
-python test_model.py
+python test_model_MLP.py
+```
+
+！！！ Don't forget to modify the address of the model weights to be tested
+
+## Model Testing(CNN)
+
+To evaluate a trained model:
+
+```bash
+python test_model_CNN.py
 ```
 
 ## Visualizing Model Weights
