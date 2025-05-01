@@ -90,5 +90,5 @@ See `Q7.ipynb` for model weight visualization.
 ## Best Results Achieved
 | Model   | Val Accuracy | Test Accuracy | Params |
 |---------|---------|----------|--------|
-| MLP     | 96.07%   | 96.22%    | 1.1M   |
-| CNN     | 97.73%   | 98.04%    |  0.388 M  |
+| MLP     | 96.07%   | 96.22%    | 0.388 M   |
+| CNN     | 97.73%   | 98.04%    |  0.0347 M  |
