@@ -81,6 +81,7 @@ To evaluate a trained model:
 python test_model_CNN.py
 ```
 
+Be sure to modify the address of the model weights.
 ## Visualizing Model Weights
 
 See `Q7.ipynb` for model weight visualization.
