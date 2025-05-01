@@ -48,7 +48,7 @@ cd /path/to/project
 To train an MLP model:
 
 ```bash
-python test_train_MLP.py
+python simple_train_MLP.py
 ```
 
 You can modify the model architecture, optimizer, and other hyperparameters in the code.
@@ -58,7 +58,7 @@ You can modify the model architecture, optimizer, and other hyperparameters in t
 To train a CNN model:
 
 ```bash
-python test_train_CNN.py
+python simple_train_CNN.py
 ```
 
 As with MLP, you can modify the CNN structure and parameters in the source code.
@@ -84,3 +84,10 @@ python test_model_CNN.py
 ## Visualizing Model Weights
 
 See `Q7.ipynb` for model weight visualization.
+
+
+## Best Results Achieved
+| Model   | Val Accuracy | Test Accuracy | Params |
+|---------|---------|----------|--------|
+| MLP     | 96.07%   | 96.22%    | 1.1M   |
+| CNN     | 97.73%   | 98.04%    |  0.388 M  |
