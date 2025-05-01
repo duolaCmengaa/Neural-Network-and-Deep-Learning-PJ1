@@ -1,20 +1,29 @@
-'''
-# MNIST Classification with MLP or CNN 
+
+# Neural Network and Deep Learning PJ1  
+Image Classification with Neural Networks
 
 ## Abstract
-This implementation contains complete MLP/CNN training pipeline with:
-- Multiple optimizers (SGD/MomentumGD)
-- Learning rate schedulers (Step/MultiStep/Exponential)
-- Data augmentation (rotation/shift/noise)
-- Ablation study framework
-- Weight visualization utilities
 
-## Model Weights
-Download from Google Drive :
-[https://drive.google.com/file/d/1LAzYK6MEA6HCz4ApYG1Cnyold7fYnVrX/view?usp=drive_link](https://drive.google.com/drive/folders/1abmgx2KvP7EycrMlQSdj_In8WHGEOOz-?usp=drive_link)
+In this project, we implemented image classification on the MNIST handwritten digits dataset using either a Multilayer Perceptron (MLP) or a Convolutional Neural Network (CNN). To improve model performance, we explored various strategies, including:
 
-## Dataset Preparation
-1. Create folder structure:
+- Number of hidden layers and weight initialization methods  
+- Multiple optimizers (SGD / MomentumSGD / Adam)  
+- Learning rate schedulers (Step / MultiStep / Exponential)  
+- Regularization techniques (e.g., L2 regularization, Dropout)  
+- Loss function selection (e.g., cross-entropy loss)  
+- Data augmentation (rotation, translation, center cropping, noise)  
+- Model weight visualization utilities
+
+## Model Weights and Dataset
+
+Model weights and dataset files can be downloaded from the following link:
+
+[Click here to access Google Drive](https://drive.google.com/drive/folders/1abmgx2KvP7EycrMlQSdj_In8WHGEOOz-?usp=drive_link)
+
+## Preparation
+
+1. Set up the dataset directory structure as follows:
+
 ```
 dataset/
 └── MNIST/
@@ -23,67 +32,45 @@ dataset/
     ├── t10k-images-idx3-ubyte.gz
     └── t10k-labels-idx1-ubyte.gz
 ```
-1. No installation required - pure Python implementation
 
-## Usage Examples
+2. No additional installation is required – the project is implemented entirely using `numpy`.
 
-# Run MLP ablation study
-```python
-from ablation_study import AblationStudy
+## Code Overview
 
-study = AblationStudy(model_type="MLP")
-config = {
-    "name": "custom_mlp",
-    "hidden_layers": [512, 256],
-    "activation": "ReLU",
-    "optimizer": "MomentGD",
-    "learning_rate": 0.01,
-    "num_epochs": 30
-}
-study.run_experiment(config)
-```
-# Run CNN experiment  
-```python
-cnn_config = {
-    "name": "enhanced_cnn",
-    "conv_configs": [
-        {'type':'conv', 'in_channels':1, 'out_channels':32, 'kernel_size':3},
-        {'type':'pool', 'pool_type':'max', 'kernel_size':2},
-        {'type':'conv', 'in_channels':32, 'out_channels':64, 'kernel_size':3}
-    ],
-    "fc_configs": [(64 * 5 * 5, 128), (128, 10)],
-    "augmentation": {"enabled":True, "rotation_prob":0.4}
-}
-cnn_study = AblationStudy(model_type="CNN")
-cnn_study.run_experiment(cnn_config)
-```
-# Visualize weights
-```python
-from visualize_weights import visualize_weights
-visualize_weights(
-    model_path="ablation_results/CNN_20230418/cnn_baseline/best_model.pickle",
-    model_type="cnn"
-)
-```
-## Key Components
-ablation_study.py - Main experiment controller
+The project consists of seven Jupyter notebooks, each corresponding to a specific task. You can open and run any of them directly. Before running, navigate to the project directory:
+
 ```bash
-models/
-├── mlp.py - MLP model class
-├── cnn.py - CNN model with conv/pool layers
-ops/
-├── layers.py - Core layers (Linear/Conv2D/Pool)
-├── optimizer.py - Optimizers (SGD/Momentum)
-└── lr_scheduler.py - Learning rate schedulers
+cd /path/to/project
 ```
 
-## Performance
-| Model   | Val Acc | Test Acc | Params |
-|---------|---------|----------|--------|
-| MLP     | 97.1%   | 97.8%    | 1.1M   |
-| CNN     | 97.2%   | 98.9%    | 2.7M   |
+## Quick Training (MLP)
 
+To train an MLP model:
 
-'''
+```bash
+python test_train_MLP.py
+```
 
+You can modify the model architecture, optimizer, and other hyperparameters in the code.
 
+## Quick Training (CNN)
+
+To train a CNN model:
+
+```bash
+python test_train_CNN.py
+```
+
+As with MLP, you can modify the CNN structure and parameters in the source code.
+
+## Model Testing
+
+To evaluate a trained model:
+
+```bash
+python test_model.py
+```
+
+## Visualizing Model Weights
+
+See `Q7.ipynb` for model weight visualization.
